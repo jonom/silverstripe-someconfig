@@ -1,0 +1,7 @@
+---
+Name: someconfig
+After: "framework/*, cms/*"
+---
+SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
+  extensions:
+    - JonoM\SomeConfig\GridFieldDetailForm_ItemRequest_Extension

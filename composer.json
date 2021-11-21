@@ -1,0 +1,29 @@
+{
+    "name": "jonom/silverstripe-someconfig",
+    "description": "Combines the CRUD features of ModelAdmin with the singleton settings editing of SiteConfig so content and settings can be co-located.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "site config",
+        "siteconfig",
+        "modeladmin",
+        "model admin",
+        "configuration",
+        "config"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Jono Menz",
+            "homepage": "https://jonomenz.com"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JonoM\\SomeConfig\\": "src/"
+        }
+    }
+}
