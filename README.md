@@ -18,7 +18,7 @@ Say you have a contact form on every page of your site, and you have a `ModelAdm
 
 ## Requirements
 
-SilverStripe ^4
+SilverStripe ^5
 
 ## Installation
 
