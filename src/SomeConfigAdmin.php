@@ -18,7 +18,7 @@ trait SomeConfigAdmin
     {
         $forms = parent::getManagedModelTabs();
         // Override the tab link for config classes to go directly to the item
-        foreach ($forms as &$formData) {
+        foreach ($forms as $formData) {
             $class = $formData->ClassName;
             if (static::isConfig($class)) {
                 $config = $class::current_config();
