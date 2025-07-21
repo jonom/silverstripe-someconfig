@@ -20,7 +20,7 @@ class GridFieldDetailForm_ItemRequest_Extension extends Extension
             $linkParts = $link === '' ? [] : explode('/', $link);
             if (count($linkParts)) {
                 $class = array_pop($linkParts);
-                if (method_exists($class, 'current_config')) {
+                if (SomeHelper::isConfig($class)) {
                     // Update the breadcrumbs
                     $controller = Controller::curr();
                     $items->last()->setField('Title', $firstLink->getField('Title'));
