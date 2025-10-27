@@ -22,8 +22,7 @@ trait SomeConfigAdmin
             $class = $formData->ClassName;
             if (static::isConfig($class)) {
                 $config = $class::current_config();
-                $segment = $this->sanitiseClassName($class);
-                $formData->Link .= "/EditForm/field/$segment/item/$config->ID/edit";
+                $formData->Link = $this->getCMSEditLinkForManagedDataObject($config);
             }
         }
         return $forms;
