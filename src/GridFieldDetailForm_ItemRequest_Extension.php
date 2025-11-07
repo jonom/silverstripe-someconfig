@@ -15,9 +15,10 @@ class GridFieldDetailForm_ItemRequest_Extension extends Extension
         if ($items && $items->count()) {
             // Get the class from the link
             $firstLink = $items->first();
-            $linkParts = explode('/', $firstLink->toMap()['Link']);
-            $linkPartsLength = count($linkParts);
-            if ($linkPartsLength) {
+            $link = $firstLink->toMap()['Link'] ?? '';
+            $link = trim($link, '/');
+            $linkParts = $link === '' ? [] : explode('/', $link);
+            if (count($linkParts)) {
                 $class = array_pop($linkParts);
                 if (method_exists($class, 'current_config')) {
                     // Update the breadcrumbs
