@@ -1,4 +1,4 @@
-# Silverstripe  SomeConfig
+# Silverstripe SomeConfig
 
 If 🗂️ `ModelAdmin` and ⚙️ `SiteConfig` had a baby, what would you get? This module! 🐣
 
@@ -18,7 +18,7 @@ Say you have a contact form on every page of your site, and you have a `ModelAdm
 
 ## Requirements
 
-SilverStripe ^6
+SilverStripe ^4 | ^5 | ^6
 
 ## Installation
 

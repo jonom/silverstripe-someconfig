@@ -20,7 +20,7 @@ class SomeConfigAdminTest extends SapphireTest
         $this->assertSame('Settings', $tab->Title);
         $this->assertSame(TitleObjectConfig::class, $tab->Tab);
         $this->assertSame(
-            'admin/titles/JonoM-SomeConfig-Tests-Data-TitleObjectConfig/EditForm/field/JonoM-SomeConfig-Tests-Data-TitleObjectConfig/item/1/edit',
+            'admin/titles/JonoM-SomeConfig-Tests-Data-TitleObjectConfig/EditForm/field/JonoM-SomeConfig-Tests-Data-TitleObjectConfig/item/1',
             $tab->Link
         );
 
