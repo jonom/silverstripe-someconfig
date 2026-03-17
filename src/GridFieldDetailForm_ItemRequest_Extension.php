@@ -2,7 +2,6 @@
 
 namespace JonoM\SomeConfig;
 
-use SilverStripe\Control\Controller;
 use SilverStripe\Core\Extension;
 
 class GridFieldDetailForm_ItemRequest_Extension extends Extension
@@ -12,22 +11,19 @@ class GridFieldDetailForm_ItemRequest_Extension extends Extension
      */
     public function updateBreadcrumbs($items)
     {
-        if ($items && $items->count()) {
-            // Get the class from the link
+        $record = $this->owner->getRecord();
+        if (!$record || !$items || !$items->count()) {
+            return;
+        }
+
+        if (SomeHelper::isConfig($record->ClassName)) {
+            $controller = $this->owner->getController();
             $firstLink = $items->first();
-            $link = $firstLink->toMap()['Link'] ?? '';
-            $link = trim($link, '/');
-            $linkParts = $link === '' ? [] : explode('/', $link);
-            if (count($linkParts)) {
-                $class = array_pop($linkParts);
-                if (SomeHelper::isConfig($class)) {
-                    // Update the breadcrumbs
-                    $controller = Controller::curr();
-                    $items->last()->setField('Title', $firstLink->getField('Title'));
-                    $firstLink->setField('Link', implode('/', $linkParts));
-                    $firstLink->setField('Title', $controller->config()->get('menu_title'));
-                }
-            }
+            $items->last()->setField('Title', $firstLink->getField('Title'));
+            $firstLink->setField('Title', $controller->config()->get('menu_title'));
+            // Link to the first tab of the ModelAdmin, not the config's list view
+            $managedModels = array_keys($controller->getManagedModels());
+            $firstLink->setField('Link', $controller->getLinkForModelTab($managedModels[0]));
         }
     }
 }
